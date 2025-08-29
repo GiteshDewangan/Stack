@@ -31,7 +31,8 @@ public:
   } 
   void pop(){
       if(head== NULL){
-          cout<<"stack is empty" <<endl ;
+          cout<<"stack is empty" <<endl
+           return;
       }
       head= head->next;
       s--;
@@ -39,11 +40,43 @@ public:
     }
   
   int top(){
+   if(head== NULL){
+          cout<<"stack is empty" <<endl ;
+       return  -1;
+      }
+
+   
       return head->val;
     }
   int size(){
       return s;
     }
+
+  void print(Node* temp){
+      if(temp -> next  == NULL){
+       cout<< temp->val <<" ";
+      return ;
+      }
+      print(temp->next);
+      cout<< temp->val << " ";
+  }
+  void display(){
+   Node* temp = head;
+   print(temp);
+
+   cout<<endl;
+  }
+
+   void displayRev(){  //rit will reverse display the stack as we have considerd linkedlist as reverse stack
+    Node* temp = head;
+    while(temp!= NULL){
+
+     cout<<temp->val<<' ';
+     temp= temp->next;
+    }
+    cout<<endl;
+   }
+
   
 };
 
